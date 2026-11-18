@@ -2,7 +2,7 @@
 
 **Aplicativo Android para organizar vistorias em linhas de transmissão de energia, com foco no trabalho em campo e no uso offline.**
 
-> **Status:** MVP em desenvolvimento. Etapas 1 e 2 implementadas e validadas em um dispositivo Android real. **Código-fonte completo em preparação para publicação neste repositório.**
+> **Status:** MVP em desenvolvimento. Etapas 1, 2 e 3 implementadas e validadas em um dispositivo Android real. **Código-fonte completo em preparação para publicação neste repositório.**
 
 ## O problema
 
@@ -22,18 +22,24 @@ A interface prioriza **botões grandes, alto contraste e funcionamento offline**
 - Prevenção de duplicidades e proteção de relacionamentos entre cadastros;
 - Persistência de dados em SQLite, mesmo após fechar o aplicativo;
 - Operação em modo avião e contadores de cadastros na tela inicial;
-- Interface validada no Android real.
+- Interface validada no Android real;
+- Criação de vistorias vinculadas às torres;
+- Câmera integrada e três fotografias obrigatórias por vistoria;
+- Fotos extras por categoria de ocorrência;
+- Visualização, substituição e exclusão de fotos;
+- Armazenamento privado de imagens e persistência offline;
+- Migração SQLite v1 → v2 preservando os cadastros.
 
 ## Próximas entregas
 
 - [x] **Etapa 1:** estrutura Flutter, interface e primeiro APK de desenvolvimento;
 - [x] **Etapa 2:** cadastros offline com SQLite e testes;
-- [ ] **Etapa 3:** câmera e fotos obrigatórias/extras por vistoria;
+- [x] **Etapa 3:** câmera e fotos obrigatórias/extras por vistoria, com correção 3.1 validada;
 - [ ] **Etapa 4:** fluxo de inspeção e retomada de vistorias;
 - [ ] **Etapa 5:** exportação ZIP por cidade, linha, torre e data;
 - [ ] **Etapa 6:** testes finais e distribuição.
 
-> **Importante:** captura de fotos, relatório e exportação ZIP são recursos planejados e **ainda não estão implementados**.
+> **Importante:** a captura e a organização interna de fotos já funcionam. A conclusão de vistorias, a geração de relatórios e a exportação ZIP ainda não estão implementadas.
 
 ## Tecnologias
 
@@ -41,11 +47,14 @@ A interface prioriza **botões grandes, alto contraste e funcionamento offline**
 - **Android**
 - **SQLite** com `sqflite`
 - **Riverpod** para gerenciamento de estado
+- **Camera/CameraX** e **path_provider** para captura e armazenamento local
 - **Flutter Test** e `sqflite_common_ffi` para testes locais
 
 ## Validação
 
-Na Etapa 2, o projeto passou por análise estática sem problemas, **47 testes automatizados aprovados** e testes reais no Xiaomi 12, incluindo criação de cadastros, validação de duplicidades, persistência e funcionamento offline.
+Em 18/11/2026, após a correção 3.1, o projeto passou por análise estática sem problemas e **100 testes automatizados aprovados no Windows 10**. No Xiaomi 12 (Android 15), **11 verificações práticas aprovadas**, incluindo preservação dos cadastros após migração, captura das três imagens obrigatórias, fotos extras, substituição, exclusão, persistência após reabrir e funcionamento em modo avião.
+
+Testes complementares de interrupção da câmera, permissão negada e reinicialização do celular ainda fazem parte da validação final.
 
 ## Privacidade
 
